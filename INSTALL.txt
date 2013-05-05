@@ -1,0 +1,12 @@
+Installation has been tested on Ubuntu 12.04 LTS.
+
+1. Install apache + PHP:
+
+   apt-get install apache2 php5 libapache2-mod-php5
+
+2. Copy 'setup.php' over to /var/www/
+
+   cp setup.php /var/www
+
+3. Browse http://yourserver/setup.php and follow the instructions there.
+
