@@ -18,8 +18,6 @@ foreach ($vars as $k => $v) {
   if (isset($_REQUEST[$k])) $vars[$k] = $_REQUEST[$k];
 }
 
-isset($_REQUEST['home']) or $home = '/home/aprs';
-
 $t = time();
 $d = 86400;
 $p1n = date('\pYmd', $t + 1 * $d);
