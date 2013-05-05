@@ -156,6 +156,7 @@ useradd -s /bin/bash -m -U aprs
   </p>
   <pre>
 cp daemon/aprs2db.pl <?=$vars['home']?>
+
 chmod +x <?=$vars['home']?>/aprs2db.pl
   </pre>
   <p>
