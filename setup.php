@@ -57,7 +57,7 @@ $estart = date('Y-m-d 03:00:00', $t);
     First off, enable partitioning in MySQL by copying mysql/aprs2db.cnf over to /etc/mysql/conf.d/:
   </p>
   <pre>
-cp mysql/aprs2db.conf /etc/mysql/conf.d
+cp mysql/aprs2db.cnf /etc/mysql/conf.d
 restart mysql
   </pre>
   <p>
