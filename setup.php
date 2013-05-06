@@ -1,5 +1,6 @@
 <?php
 $vars = array(
+  'unixuser' => 'aprs',
   'home'  => '/home/aprs',
   'user' => 'aprs',
   'db' => 'aprs',
@@ -7,6 +8,7 @@ $vars = array(
 );
 
 $descriptions = array(
+  'unixuser' => 'Unix user the daemon runs as',
   'home' => 'Home directory',
   'user' => 'MySQL user name',
   'db' => 'MySQL database name',
@@ -138,6 +140,10 @@ cat &gt;/etd/default/aprs2db
   </pre>
   <p>Then paste (end with CTRL+D):</p>
   <pre>
+# Unix user the daemon runs as
+APRS_USER=<?=$vars['unixuser']?>
+
+
 # Where aprs2db.pl lives
 APRS_HOME=<?=$vars['home']?>
 
@@ -146,10 +152,10 @@ APRS_HOME=<?=$vars['home']?>
 OPTIONS="-c <?=$vars['callsign']?>"
   </pre>
   <p>
-    Create user 'aprs'. On a root shell::
+  Create user '<?=$vars['unixuser']?>'. On a root shell::
   </p>
   <pre>
-useradd -s /bin/bash -m -U aprs
+useradd -s /bin/bash -m -U <?=$vars['unixuser']?> -d <?=$vars['home']?>
   </pre>
   <p>
     Copy over the aprs2db daemon to its home:
@@ -228,7 +234,8 @@ Listen 8000
 &lt;VirtualHost *:8000&gt;
   ServerAdmin webmaster@localhost
 
-  DocumentRoot <?=$vars['home']/web?>
+  DocumentRoot <?=$vars['home']?>/web
+
   ServerName aprs.trackuino.org
 
   ErrorLog  /var/log/apache2/aprs-error.log
